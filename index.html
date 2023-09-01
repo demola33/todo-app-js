@@ -21,6 +21,32 @@
     <title>Todo App</title>
   </head>
   <body>
+    <header class="header">
+      <div class="container">
+        <h1 class="header__title header__content">My Todo List</h1>
+        <form action="" class="header__content">
+          <div class="header__todo-form">
+            <input
+              type="text"
+              class="form-control header__todo-input"
+              placeholder="Add your todo here"
+              aria-label="Add your todo here"
+              aria-describedby="button-addon2"
+            />
+            <button
+              class="btn btn-outline-primary header__todo-submit"
+              type="submit"
+              id="button-addon2"
+            >
+              <i class="fa-solid fa-plus" style="color: #4d00d9"></i>
+            </button>
+          </div>
+        </form>
+        <div class="header__todo-container">
+          <ul class="header__todo-list"></ul>
+        </div>
+      </div>
+    </header>
     <script src="./js/app.js"></script>
   </body>
 </html>
