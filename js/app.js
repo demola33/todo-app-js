@@ -13,7 +13,8 @@ todoSubmit.addEventListener("click", addTodo);
 todoList.addEventListener("click", deleteCheck);
 todoInput.addEventListener("input", updateValue);
 
-// Functions
+// Class
+
 class Item {
   constructor(id, value, status) {
     this.id = id;
@@ -22,19 +23,20 @@ class Item {
   }
 }
 
+// Functions
+
 function setDisable() {
   todoSubmit.disabled = true;
-  addIcon.style.color = `#fff`;
+  addIcon.classList.remove("enabled-icon");
 }
 
 function setEnable() {
   todoSubmit.disabled = false;
-  addIcon.style.color = `#4D00D9`;
+  addIcon.classList.add("enabled-icon");
 }
 
 function updateValue(event) {
   const inputValue = event.target.value;
-  console.log(inputValue === "");
   if (inputValue !== "") {
     setEnable();
   } else {
@@ -53,12 +55,11 @@ function addTodo(event) {
   // Get the user input value
   const inputValue = todoInput.value;
 
+  // Create new Item instance
   id++;
   var item = new Item(id, inputValue, itemStatus[0]);
   itemList.push(item);
 
-  console.log(item);
-  console.log(itemList);
   // Create Todo div
   const todoDiv = document.createElement("div");
   todoDiv.classList.add("header__todo");
@@ -103,7 +104,15 @@ function deleteCheck(event) {
     const todoId = todo.id;
     const item = itemList[todoId - 1];
     item.status = itemStatus[2];
-    todo.remove();
+
+    // Animation
+    todo.classList.add("fall");
+    todo.addEventListener("transitionend", (e) => {
+      if (e.propertyName == "transform") {
+        todo.remove();
+      }
+    });
+    console.log(item);
   }
 
   // On Completed

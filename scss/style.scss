@@ -110,5 +110,14 @@ body {
   opacity: 0.5;
 }
 
+.enabled-icon {
+  color: #4D00D9;
+}
+
+.fall {
+  transform: translateY(10rem) rotateZ(20deg);
+  opacity: 0;
+}
+
 
 
