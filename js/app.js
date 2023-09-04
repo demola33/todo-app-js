@@ -42,7 +42,7 @@ function updateValue(event) {
   }
 }
 
-var itemStatus = ["new", "completed", "deleted"];
+var itemStatus = ["in-progress", "done", "deleted"];
 var id = 0;
 var itemList = [];
 
@@ -55,8 +55,10 @@ function addTodo(event) {
 
   id++;
   var item = new Item(id, inputValue, itemStatus[0]);
+  itemList.push(item);
 
   console.log(item);
+  console.log(itemList);
   // Create Todo div
   const todoDiv = document.createElement("div");
   todoDiv.classList.add("header__todo");
@@ -93,18 +95,29 @@ function addTodo(event) {
 
 function deleteCheck(event) {
   console.log(event);
-  const item = event.target;
+  const element = event.target;
 
   // On Delete
-  if (item.classList[0] === "trash-btn") {
-    const todo = item.parentElement;
+  if (element.classList[0] === "trash-btn") {
+    const todo = element.parentElement;
+    const todoId = todo.id;
+    const item = itemList[todoId - 1];
+    item.status = itemStatus[2];
     todo.remove();
   }
 
   // On Completed
-  if (item.classList[0] === "complete-btn") {
-    const todo = item.parentElement;
-    console.log(todo.id);
+  if (element.classList[0] === "complete-btn") {
+    const todo = element.parentElement;
+    const todoId = todo.id;
+    const item = itemList[todoId - 1];
+    const status = item.status;
+    if (status === "in-progress") {
+      item.status = itemStatus[1];
+    } else {
+      item.status = itemStatus[0];
+    }
     todo.classList.toggle("completed");
+    console.log(item);
   }
 }
