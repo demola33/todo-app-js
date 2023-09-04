@@ -1,4 +1,5 @@
 $light-color: var(--bs-light);
+$secondary-color: var(--bs-secondary);
 $border-radius: var(--bs-border-radius);
 
 *{
@@ -8,8 +9,8 @@ $border-radius: var(--bs-border-radius);
 }
 
 body {
-  background: linear-gradient(120deg, #4D00D9, #B084FF);
-  color: #fff;
+  background: linear-gradient(120deg, $secondary-color, #B084FF);
+  color: $light-color;
   min-height: 100vh;
 }
 
@@ -32,17 +33,10 @@ body {
   
   }
 
-  // &__todo-input {
-  //   // border-top-right-radius: 0;
-  //   // border-bottom-right-radius: 0;
-  // }
-
   &__todo-submit {
     padding: 0.5rem;
-    // border-top-left-radius: 0;
-    // border-bottom-left-radius: 0;
     font-size: 2rem;
-    background: white;
+    background: $light-color;
     
   }
 
@@ -62,12 +56,11 @@ body {
 
   &__todo {
     margin: 0.5rem;
-    background: white;
+    background: $light-color;
     color: black;
     font-size: 1.2rem;
     display: flex;
     justify-content: space-between;
-    // align-items: center;
     border-top-left-radius: $border-radius;
     border-bottom-left-radius: $border-radius;
     border-top-right-radius: $border-radius;
@@ -80,10 +73,6 @@ body {
     padding: 0rem 0.5rem;
     align-self: center;
   }
-}
-
- form {
-  min-height: 20vh;
 }
 
 .complete-btn {
@@ -111,7 +100,7 @@ body {
 }
 
 .enabled-icon {
-  color: #4D00D9;
+  color: $secondary-color;
 }
 
 .fall {
