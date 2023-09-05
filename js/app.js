@@ -60,16 +60,16 @@ function addTodo(event) {
   var item = new Item(id, inputValue, itemStatus[0]);
   itemList.push(item);
 
-  // Create Todo div
-  const todoDiv = document.createElement("div");
-  todoDiv.classList.add("header__todo");
-  todoDiv.id = id;
+  // Create an <li> to represent the todo item.
+  const todoListItem = document.createElement("li");
+  todoListItem.classList.add("header__todo");
+  todoListItem.id = id;
 
-  // Create Todo List item
-  const newTodoItem = document.createElement("li");
-  newTodoItem.innerText = inputValue;
-  newTodoItem.classList.add("header__todo-item");
-  todoDiv.appendChild(newTodoItem);
+  // Create a <p> to represent the todo item text.
+  const todoText = document.createElement("p");
+  todoText.innerText = inputValue;
+  todoText.classList.add("header__todo-text");
+  todoListItem.appendChild(todoText);
 
   // Create Completed Button
   const completedButton = document.createElement("button");
@@ -77,7 +77,7 @@ function addTodo(event) {
   completedButton.classList.add("complete-btn");
   completedButton.classList.add("btn");
   completedButton.classList.add("btn-success");
-  todoDiv.appendChild(completedButton);
+  todoListItem.appendChild(completedButton);
 
   // Create Delete Button
   const deleteButton = document.createElement("button");
@@ -85,10 +85,10 @@ function addTodo(event) {
   deleteButton.classList.add("trash-btn");
   deleteButton.classList.add("btn");
   deleteButton.classList.add("btn-danger");
-  todoDiv.appendChild(deleteButton);
+  todoListItem.appendChild(deleteButton);
 
-  // Append Todo div to todoList
-  todoList.appendChild(todoDiv);
+  // Append Todo todo item to todoList
+  todoList.appendChild(todoListItem);
 
   // Clear Todo Input Value
   todoInput.value = "";
