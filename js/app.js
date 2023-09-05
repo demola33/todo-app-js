@@ -109,7 +109,7 @@ function deleteCheck(event) {
     // Animation
     todo.classList.add("fall");
     todo.addEventListener("transitionend", (e) => {
-      if (e.propertyName == "transform") {
+      if (e.propertyName === "transform") {
         todo.remove();
       }
     });
