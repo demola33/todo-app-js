@@ -11,6 +11,7 @@ setDisable();
 // EventListeners
 todoSubmit.addEventListener("click", addTodo);
 todoList.addEventListener("click", deleteCheck);
+todoList.addEventListener("click", completeCheck);
 todoInput.addEventListener("input", updateValue);
 
 // Class
@@ -113,6 +114,10 @@ function deleteCheck(event) {
       }
     });
   }
+}
+
+function completeCheck(event) {
+  const element = event.target;
 
   // On Completed
   if (element.classList[0] === "complete-btn") {
