@@ -92,6 +92,7 @@ function addTodo(event) {
 
   // Clear Todo Input Value
   todoInput.value = "";
+  setDisable();
 }
 
 function deleteCheck(event) {
