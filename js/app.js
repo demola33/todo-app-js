@@ -34,6 +34,7 @@ function setDisable() {
 function setEnable() {
   todoSubmit.disabled = false;
   addIcon.classList.add("enabled-icon");
+  todoSubmit.classList.add("enabled-button");
 }
 
 function updateValue(event) {
@@ -43,6 +44,13 @@ function updateValue(event) {
   } else {
     setDisable();
   }
+}
+
+function onFocus_out() {
+  todoSubmit.classList.remove("enabled-button");
+}
+function onFocus_in() {
+  todoSubmit.classList.add("enabled-button");
 }
 
 var itemStatus = ["in-progress", "done", "deleted"];
