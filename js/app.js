@@ -96,7 +96,6 @@ function addTodo(event) {
 }
 
 function deleteCheck(event) {
-  console.log(event);
   const element = event.target;
 
   // On Delete
@@ -113,7 +112,6 @@ function deleteCheck(event) {
         todo.remove();
       }
     });
-    console.log(item);
   }
 
   // On Completed
@@ -128,6 +126,5 @@ function deleteCheck(event) {
       item.status = itemStatus[0];
     }
     todo.classList.toggle("completed");
-    console.log(item);
   }
 }
