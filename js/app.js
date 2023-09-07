@@ -14,18 +14,7 @@ todoList.addEventListener("click", deleteCheck);
 todoList.addEventListener("click", completeCheck);
 todoInput.addEventListener("input", updateValue);
 
-// Class
-
-class Item {
-  constructor(id, value, status) {
-    this.id = id;
-    this.value = value;
-    this.status = status;
-  }
-}
-
 // Functions
-
 function setDisable() {
   todoSubmit.disabled = true;
   addIcon.classList.remove("enabled-icon");
@@ -64,10 +53,16 @@ function addTodo(event) {
   // Get the user input value
   const inputValue = todoInput.value;
 
-  // Create new Item instance
+  // Create new object instance
   id++;
-  var item = new Item(id, inputValue, itemStatus[0]);
-  itemList.push(item);
+  const item = {
+    id,
+    value: inputValue,
+    status: itemStatus[0]
+  }
+
+  itemList.push(item)
+
 
   // Create an <li> to represent the todo item.
   const todoListItem = document.createElement("li");

@@ -15,16 +15,16 @@ body {
 }
 
 .header {
-  
-  &__title {
-    font-size: 2.0rem;
-    min-height: 20vh; 
-  }
 
   &__content {
     display: flex;
     justify-content: center;
     align-items: center;
+
+    &--title {
+      font-size: 2.0rem;
+      min-height: 20vh; 
+    }
   }
 
   &__todo-form {
@@ -72,6 +72,16 @@ body {
     align-self: center;
     margin-bottom: 0;
   }
+
+  &__todo-input {
+    &.form-control:focus {
+      color: var(--bs-body-color);
+      background-color: var(--bs-body-bg);
+      border-color: $light-color;
+      outline: 0;
+      box-shadow: 0 0 0 0.25rem $light-color;
+    }
+  }
 }
 
 .btn {
@@ -81,14 +91,6 @@ body {
 
 .btn:disabled {
   border-color: $light-color;
-}
-
-.form-control:focus {
-  color: var(--bs-body-color);
-  background-color: var(--bs-body-bg);
-  border-color: $light-color;
-  outline: 0;
-  box-shadow: 0 0 0 0.25rem $light-color;
 }
 
 .enabled-button {
